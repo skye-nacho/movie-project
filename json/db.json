@@ -1,0 +1,39 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "Universal Soldier: The Return",
+      "rating": "1"
+    },
+    {
+      "id": 2,
+      "title": "Eraserhead",
+      "rating": "3"
+    },
+    {
+      "id": 3,
+      "title": "War of the Worlds",
+      "rating": "4"
+    },
+    {
+      "id": 4,
+      "title": "The Matrix",
+      "rating": "5"
+    },
+    {
+      "id": 5,
+      "title": "Star Wars",
+      "rating": "5"
+    },
+    {
+      "id": 6,
+      "title": "The Fellowship of the Ring",
+      "rating": "5"
+    },
+    {
+      "id": 7,
+      "title": "Shine",
+      "rating": "5"
+    }
+  ]
+}
