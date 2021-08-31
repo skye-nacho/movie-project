@@ -9,9 +9,10 @@ fetch('https://wiggly-dot-zucchini.glitch.me/movies',
         return response.json();
     })
     // take the parsed JSON and log it
-
-    .then(function (data){
-        console.log(data);
+    .then(function(data){
+      data.forEach(function (data) {
+              $('#list').append(`Title: ${data.title} <br> Rating: ${data.rating} <br>`);
+          })
     })
     //If the promise rejects (wrong URL, server down, etc.) log the error
     .catch(function (error){
@@ -21,4 +22,6 @@ fetch('https://wiggly-dot-zucchini.glitch.me/movies',
 setTimeout(function(){
     alert("Hello");
     $('#loadscreen').toggleClass('hidden');
+    $(`#loadscreen`).toggleClass('loading');
+    $('#list').toggleClass('hidden');
 }, 1200);
