@@ -9,6 +9,7 @@ fetch('https://wiggly-dot-zucchini.glitch.me/movies',
         return response.json();
     })
     // take the parsed JSON and log it
+
     .then(function (data){
         console.log(data);
     })
@@ -16,3 +17,8 @@ fetch('https://wiggly-dot-zucchini.glitch.me/movies',
     .catch(function (error){
         console.log(error)
     })
+
+setTimeout(function(){
+    alert("Hello");
+    $('#loadscreen').toggleClass('hidden');
+}, 1200);
