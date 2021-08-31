@@ -4,6 +4,16 @@
     justify-content: center;
 }
 
+.body {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.form {
+    display: flex;
+    align-content: flex-end;
+}
+
 .hidden {
     display: none;
 }

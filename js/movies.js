@@ -24,4 +24,22 @@ setTimeout(function(){
     $('#loadscreen').toggleClass('hidden');
     $(`#loadscreen`).toggleClass('loading');
     $('#list').toggleClass('hidden');
+    $(`#list`).toggleClass('body');
 }, 1200);
+
+
+$('#submit').click(function (){
+    fetch('https://wiggly-dot-zucchini.glitch.me/movies', {
+        // Adding method type
+        method: "POST",
+        // Adding headers to the request
+        headers: {
+            "Content-type": "application/json"
+        }
+    })
+        // Converting to JSON
+        .then(response => response.json())
+
+        // Displaying results to console
+        .then(json => console.log(json));
+})
