@@ -1,45 +1,54 @@
-fetch('https://wiggly-dot-zucchini.glitch.me/movies',
-    {method: 'GET',
-        headers: {
-        'Content-Type': 'application/json'
-        }
-    })
-    //get the successful response and parse the stream as JSON
-    .then(function (response){
-        return response.json();
-    })
-    // take the parsed JSON and log it
-    .then(function(data){
-      data.forEach(function (data) {
-              $('#list').append(`Title: ${data.title} <br> Rating: ${data.rating} <br>`);
-          })
-    })
-    //If the promise rejects (wrong URL, server down, etc.) log the error
-    .catch(function (error){
-        console.log(error)
-    })
+function displayMovie() {
+    fetch('https://wiggly-dot-zucchini.glitch.me/movies',
+        {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        //get the successful response and parse the stream as JSON
+        .then(function (response) {
+            return response.json();
+        })
+        // take the parsed JSON and log it
+        .then(function (data) {
+            data.forEach(function (data) {
+                $('#list').append(`Title:  ${data.title} <br> Rating: ${data.rating} <br>`);
+            })
+        })
+        //If the promise rejects (wrong URL, server down, etc.) log the error
+        .catch(function (error) {
+            console.log(error)
+        })
+}
+displayMovie();
 
 setTimeout(function(){
     alert("Hello");
-    $('#loadscreen').toggleClass('hidden');
     $(`#loadscreen`).toggleClass('loading');
+    $('#loadscreen').toggleClass('hidden');
     $('#list').toggleClass('hidden');
     $(`#list`).toggleClass('body');
+    $('#user-input').toggleClass('hidden');
+    $(`#user-input`).toggleClass('form');
+    $('#submit').toggleClass('hidden');
+    $(`#submit`).toggleClass('form')
 }, 1200);
 
-
-$('#submit').click(function (){
+function addMovie(){
     fetch('https://wiggly-dot-zucchini.glitch.me/movies', {
-        // Adding method type
         method: "POST",
-        // Adding headers to the request
         headers: {
             "Content-type": "application/json"
-        }
-    })
-        // Converting to JSON
-        .then(response => response.json())
+        },
+        body: JSON.stringify({
+            title: $('#title').val(),
+            rating: $('#rating').val(),
+        })
+    }).then(response => response.json())
+        .then(console.log)
+        .catch(console.error)
+}
 
-        // Displaying results to console
-        .then(json => console.log(json));
-})
+$('#submit').on('click', addMovie)
+
