@@ -18,3 +18,11 @@
 .hidden {
     display: none;
 }
+
+/*#list > p{*/
+/*    color: hotpink;*/
+/*}*/
+
+.wordcolorchanger{
+    color: hotpink;
+}
