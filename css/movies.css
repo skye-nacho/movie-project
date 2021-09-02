@@ -8,6 +8,8 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    background-image: url("../img/Energy Absorption.jpg");
+    background-position: center;
 }
 
 .form {
