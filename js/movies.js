@@ -10,8 +10,6 @@ setTimeout(function(){
     $(`#submit`).toggleClass('form')
 }, 1200);
 
-
-
 function displayMovie() {
     fetch('https://wiggly-dot-zucchini.glitch.me/movies',
         {
@@ -54,5 +52,4 @@ function addMovie(){
         .then(console.log)
         .catch(console.error)
 }
-//
 $(`#submit`).on('click', addMovie)
