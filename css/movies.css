@@ -6,13 +6,14 @@
 
 .body {
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
 }
 
 .form {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 .hidden {

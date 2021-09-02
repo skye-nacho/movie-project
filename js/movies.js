@@ -1,5 +1,5 @@
 setTimeout(function(){
-    alert("Hello");
+    alert("It's Showtime!");
     $(`#loadscreen`).toggleClass('loading');
     $('#loadscreen').toggleClass('hidden');
     $('#list').toggleClass('hidden');
@@ -9,8 +9,6 @@ setTimeout(function(){
     $('#submit').toggleClass('hidden');
     $(`#submit`).toggleClass('form')
 }, 1200);
-
-
 
 function displayMovie() {
     fetch('https://wiggly-dot-zucchini.glitch.me/movies',
@@ -54,14 +52,7 @@ function addMovie(){
         .then(console.log)
         .catch(console.error)
 }
-//
 $(`#submit`).on('click', addMovie)
-
-
-$(document).on('dblclick', '.movie', function (){
-  let confirmDelete = confirm("Are you sure you want to delete?")
-
-});
 
 
 
@@ -76,16 +67,23 @@ $(document).on('dblclick', '.movie', function (){
 //     }).then(r  =>)
 // };
 
-function deleteMovie (){
-    fetch('https://wiggly-dot-zucchini.glitch.me/movies',{
-        method:'DELETE'
-    }).then(response=>{
-        return response.json()
-    }).then(data=>
-// this is the data we get after putting our data,
+
+
+$(document).on('dblclick', '.movie', function (){
+let confirmDelete = confirm("Are you sure you want to delete?");
+    function deleteMovie() {
+        fetch('https://wiggly-dot-zucchini.glitch.me/movies', {
+            method: 'DELETE'
+        }).then(response => {
+            return response.json()
+        }).then(data =>
             console.log(data)
-    )
-};
+        )
+    }
+    if (confirmDelete() === true) {
+    }
+    deleteMovie();
+});
 
 //
 // const deleteData = async ( ) =>{
